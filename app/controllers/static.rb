@@ -1,20 +1,16 @@
 # require '../models/user'
 require 'byebug'
+
 get '/' do
 
-  erb :"static/index"
+  erb :"static/signup"
 end
 
-post '/signup' do
-  user = User.new(params[:user])
-  byebug
-  if user.save
-    # what should happen if the user is save?
-    @msg = "Welcome to Quora"
-    redirect '/'
-  else
-    # what should happen if the user keyed in invalid date?
-    @msg = "Invalid signup, please try again."
-    redirect '/'
-  end
-end  
+get '/success' do
+	erb :"static/success"
+end
+
+get '/fail' do
+	erb :"static/fail"
+end
+

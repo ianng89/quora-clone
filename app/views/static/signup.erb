@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,19 +6,35 @@
 </head>
 
 <body>
+<!-- <% if session['email'] == params[:email] %>
+<%= p "YES" %>
+<% else %>
+<%= p "NO" %>
+<% end %> -->
+
+
+
+You are logged in as: <%= session['email'] %>
+
+
 <form method=post action=/signup>
 	<input type=text placeholder="First Name" name="user[first_name]"><br>
 	<input type=text placeholder="Last Name" name="user[last_name]"><br>
     <input type=text placeholder="Email" name="user[email]"><br>
-    <input type=password placeholder="Password" name="user[encrypted_password]"></br>
+    <input type=password placeholder="Password" name="user[password]"></br>
     <input type=submit value="Sign up">
 </form>
-	<input type=text placeholder="Email" name="user[first_name]"><br>
-	<input type=password placeholder="Password" name="user[encrypted_password]"></br>
 
-<form method=post action=/login>
+<form method=post action=/logout>
+<button type="submit">Sign Out</button>
+</form>
+
+<form method=get action=/login>
+<button type="submit">Sign In</button>
+</form>
+
 
 </body>
-<p><% @msg %></p>
+
 
 </html>
