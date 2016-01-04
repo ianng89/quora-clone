@@ -12,6 +12,7 @@ post '/login' do
 	if user = User.authenticate(params[:email], params[:password]) 
 		session['email'] ||= params[:email]
 	  session['user_id'] ||= user.id
+	  session['username'] ||= user.username
 		redirect '/success' 
 	else 
  

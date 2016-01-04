@@ -1,0 +1,20 @@
+<html>
+
+
+<head>
+</head>
+
+<body>
+
+<div class="container text">
+	<p>Edit this question: </p>
+
+	<form action="/questions/<%=@questions.id%>/edit" method="post">
+		<textarea name="question" class="text-form"> <%=@questions.text%></textarea>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+</body>
+
+</html>

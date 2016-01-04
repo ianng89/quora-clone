@@ -1,0 +1,20 @@
+<html>
+
+
+<head>
+</head>
+
+<body>
+<% @questions.each do |question| %>
+
+<a href="/questions/<%=question.id%>"><p> <%= "#{question.id}" + ". " + question.text %> </p></a>
+<p>By: <%= question.user.username %> </p>
+<p> <a href="/newanswer"><button type="button">Answer</button> </a></p>
+<% if current_user  == question.user %>
+<a href="questions/<%=question.id%>/edit"><button type="button">Edit Post</button> </a>
+<% end %>
+<% end %>
+
+</body>
+
+</html>
