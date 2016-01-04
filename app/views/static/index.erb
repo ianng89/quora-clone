@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-You are logged in as: <%= session['email'] %> <form method=post action=/logout>
+You are logged in as: <b><%= session['username'] %></b> with <b>ID number: <%= session['user_id'] %></b> and with email:<b> <%= session['email'] %></b><form method=post action=/logout>
 <button type="submit">Sign Out</button>
 </form>
 <br>

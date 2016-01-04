@@ -8,7 +8,7 @@ end
 
 post '/newquestion' do
 
-question = Question.create(text: params[:question], user_id: session[:user_id] )
+question = Question.create(q_text: params[:question], user_id: session[:user_id] )
 
 	if question.save
 
@@ -25,7 +25,7 @@ get '/questions' do
 end
 
 get '/questions/:id' do
-	@questions = Question.find(params[:id])
+	@question = Question.find(params[:id])
 	erb :"static/questions/single"
 end
 
