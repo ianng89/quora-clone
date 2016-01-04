@@ -1,3 +1,5 @@
+
+
 require 'bcrypt'
 
 
@@ -32,11 +34,12 @@ include BCrypt
 
 	def self.authenticate(email, password)
 		if user = find_by_email(email)
-			if BCrypt::Password.new(user.encrypted_password).is_password? 
+			if BCrypt::Password.new(user.encrypted_password).is_password? password
+
 				return user
 			end
 		end
-		return 'No such user / Invalid password'
+		return nil
 	end
 end
 

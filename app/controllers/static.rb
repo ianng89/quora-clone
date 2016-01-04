@@ -3,7 +3,7 @@ require 'byebug'
 
 get '/' do
 
-  erb :"static/signup"
+  erb :"static/index"
 end
 
 get '/success' do
@@ -14,3 +14,6 @@ get '/fail' do
 	erb :"static/fail"
 end
 
+get '/signup' do
+	erb :"static/signup"
+end

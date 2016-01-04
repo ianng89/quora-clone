@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+You are logged in as: <%= session['email'] %> <form method=post action=/logout>
+<button type="submit">Sign Out</button>
+</form>
+<br>
+ <% if !logged_in? %>
+You are not logged in: Please login here:
+<form method=post action=/login>
+
+	<input type=text placeholder="Email" name="email"><br>
+	<input type=password placeholder="Password" name="password"></br>
+
+<form method=get action=/login>
+<button type="submit">Sign In</button></form>
+<br>Don't have an account? Sign up here: 
+</form><form method=get action=/signup>
+<button type="submit">Sign Up</button>
+</form>
+ <% end %> 
+
+</body>
+
+
+</html>

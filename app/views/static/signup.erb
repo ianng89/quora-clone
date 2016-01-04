@@ -14,8 +14,8 @@
 
 
 
-You are logged in as: <%= session['email'] %>
-
+<!-- You are logged in as: <%= session['email'] %>
+ -->
 
 <form method=post action=/signup>
 	<input type=text placeholder="First Name" name="user[first_name]"><br>
@@ -23,10 +23,6 @@ You are logged in as: <%= session['email'] %>
     <input type=text placeholder="Email" name="user[email]"><br>
     <input type=password placeholder="Password" name="user[password]"></br>
     <input type=submit value="Sign up">
-</form>
-
-<form method=post action=/logout>
-<button type="submit">Sign Out</button>
 </form>
 
 <form method=get action=/login>

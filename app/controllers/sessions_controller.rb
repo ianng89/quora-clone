@@ -1,23 +1,25 @@
 enable :sessions
-
 get '/login' do
 	erb :"static/login"
 end
 
 post '/login' do 
-	user = User.find_by_email(params[:email])
+	# user = User.find_by_email(params[:email])
 
-  if user.password == params[:password]
-  #   give_token
-  # else
-  session['email'] ||= params[:email]
-  session['name'] ||= params[:first_name]
 
-    redirect '/success'
 
-  else 
-    redirect '/fail'
-  end
+  #   redirect '/success'
+	if user = User.authenticate(params[:email], params[:password]) 
+		session['email'] ||= params[:email]
+	  session['user_id'] ||= user.id
+		redirect '/success' 
+	else 
+ 
+
+	    redirect '/fail'
+  	end
+
+
 end
 
 get '/sessionyes' do 
@@ -32,6 +34,9 @@ end
 
 post '/logout' do
 	session['email'] = nil 
-
+	session['user_id'] = nil
 redirect '/'
 end
+
+get '/users/:id' do
+	end
