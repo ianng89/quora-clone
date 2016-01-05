@@ -1,5 +1,3 @@
-
-
 get '/newquestion' do 
 
 erb :"static/questions/new"
@@ -36,9 +34,30 @@ end
 
 post '/questions/:id/edit' do
 		question = Question.find(params[:id])
-		question.text = params[:question]
+		question.q_text = params[:question]
 		question.save
 		redirect '/questions'
 end
+
+# get 'questions/:username' do
+# 	byebug
+# 	question = Question.find(params[:username])
+# 	erb :"static/questions/user"
+# end
+
+get '/users/:user_id/questions' do
+	user = User.find(params[:user_id])
+	# byebug
+	@questions = user.questions
+	erb :"static/questions/user"
+end
+
+get '/users/:user_id/answers' do
+	user = User.find(params[:user_id])
+	@answers = user.answers
+	erb :"static/answers/user"
+end
+
+
 
 

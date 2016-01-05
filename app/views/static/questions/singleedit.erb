@@ -10,7 +10,7 @@
 	<p>Edit this question: </p>
 
 	<form action="/questions/<%=@questions.id%>/edit" method="post">
-		<textarea name="question" class="text-form"> <%=@questions.text%></textarea>
+		<textarea name="question" class="text-form"> <%=@questions.q_text%></textarea>
 		<br><br>
 		<input type="submit" value="Submit">
 	</form>

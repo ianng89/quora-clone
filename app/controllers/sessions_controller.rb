@@ -36,6 +36,7 @@ end
 post '/logout' do
 	session['email'] = nil 
 	session['user_id'] = nil
+	session['username'] = nil
 redirect '/'
 end
 
