@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 	validates_format_of :email, :with => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, message: "EMAIL NOT VALID", multiline: true
 	has_many :questions
 	has_many :answers
+	has_many :questionvote
+	has_many :answervote
 
 include BCrypt
 

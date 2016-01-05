@@ -5,15 +5,28 @@
 </head>
 
 <body>
-<% @questions.each do |question| %>
+	<% @questions.each do |question| %>
 
-<a href="/questions/<%=question.id%>"><p> <%= "#{question.id}" + ". " + question.q_text %> </p></a>
-<p>By: <%= question.user.username %> </p>
-<p> <a href="/questions/<%= question.id%>/answer"><button type="button">Answer</button> </a></p>
-<% if current_user  == question.user %>
-<a href="questions/<%=question.id%>/edit"><button type="button">Edit Post</button> </a>
-<% end %>
-<% end %>
+		<a href="/questions/<%=question.id%>">
+			<p> <%= "#{question.id}" + ". " + question.q_text %> </p>
+		</a>
+		<p>By: <%= question.user.username %> </p>
+		<p> <a href="/questions/<%= question.id%>/answer"><button type="button">Answer</button> </a></p>
+			
+			<% if current_user  == question.user %>
+			<a href="questions/<%=question.id%>/edit"><button type="button">Edit Post</button> </a>
+			<% end %>
+		<form action ="/questions/<%= question.id%>/upvote" method="post">
+			<!-- <input type="hidden" value="<%= question.id%>"> -->
+			<button type="submit">Upvote</button>
+		</form>
+		<form action ="/questions/<%= question.id%>/downvote" method="post">
+		<button type="submit">Downvote</button>
+		</form>
+		<%= question.upvote_count %>
+		
+
+	<% end %>
 
 </body>
 

@@ -22,7 +22,10 @@ You are not logged in: Please login here:
  <% end %> 
 <a href="/questions">See all questions</a>
 <a href="/newquestion">Ask a question</a>
+<% if current_user %>
 <a href='/users/<%= current_user.id %>/questions'>My Questions</a>
+<a href='/users/<%= current_user.id %>/answers'>My Answers</a>
+<% end %>
 
 </body>
 

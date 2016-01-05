@@ -18,7 +18,7 @@ question = Question.create(q_text: params[:question], user_id: session[:user_id]
 end
 
 get '/questions' do
-	@questions = Question.all.order(:id)
+	@questions = Question.all.sort_by(&:upvote_count).reverse
 	erb :"static/questions/all"
 end
 
