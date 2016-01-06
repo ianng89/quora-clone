@@ -11,3 +11,7 @@ post '/signup' do
     redirect '/fail'
   end
 end  
+
+get '/users/:id/edit' do
+  erb :"static/user/edit"
+end

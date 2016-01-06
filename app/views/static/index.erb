@@ -25,6 +25,7 @@ You are not logged in: Please login here:
 <% if current_user %>
 <a href='/users/<%= current_user.id %>/questions'>My Questions</a>
 <a href='/users/<%= current_user.id %>/answers'>My Answers</a>
+<a href='/users/<%= current_user.id %>/edit'>Edit Profile</a>
 <% end %>
 
 </body>
