@@ -10,9 +10,7 @@ post '/login' do
 
   #   redirect '/success'
 	if user = User.authenticate(params[:email], params[:password]) 
-		session['email'] ||= params[:email]
 	  session['user_id'] ||= user.id
-	  session['username'] ||= user.username
 		redirect '/success' 
 	else 
  
@@ -32,11 +30,13 @@ get '/sessionyes' do
 	end
 end
 
+get'/logout' do 
+	session['user_id'] = nil
+redirect '/'
+end
 
 post '/logout' do
-	session['email'] = nil 
 	session['user_id'] = nil
-	session['username'] = nil
 redirect '/'
 end
 

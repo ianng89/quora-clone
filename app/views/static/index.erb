@@ -2,9 +2,14 @@
 <head>
 </head>
 <body>
-You are logged in as: <b><%= session['username'] %></b> with <b>ID number: <%= session['user_id'] %></b> and with email:<b> <%= session['email'] %></b><form method=post action=/logout>
+<% if logged_in? %>
+Hi <b> <%=current_user.first_name%> </b>.
+You are logged in as: <b> <%=current_user.username%> </b> 
+with <b> ID number: <%= session['user_id'] %> </b> and with email: <b> <%= current_user.email %> </b>
+<form method=post action=/logout>
 <button type="submit">Sign Out</button>
 </form>
+<% end %>
 <br>
  <% if !logged_in? %>
 You are not logged in: Please login here:
@@ -27,7 +32,6 @@ You are not logged in: Please login here:
 <a href='/users/<%= current_user.id %>/answers'>My Answers</a>
 <a href='/users/<%= current_user.id %>/edit'>Edit Profile</a>
 <% end %>
-
 </body>
 
 

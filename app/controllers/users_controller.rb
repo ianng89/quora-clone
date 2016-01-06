@@ -15,3 +15,9 @@ end
 get '/users/:id/edit' do
   erb :"static/user/edit"
 end
+
+post '/users/:id/edit' do
+  @user = User.find(params[:id])
+  @user.update(first_name: params[:first_name], last_name: params[:last_name], username: params[:username], email: params[:email])
+  redirect '/'
+end
